@@ -11,19 +11,22 @@ response_data = response.json()
 # print(response.text)
 # print("____________________________________________________")
 sheet_data = response_data["prices"]
-# print(sheet_data)
+print(sheet_data)
 
 
 for row_in_sheety_table in sheet_data:
     iataCode = row_in_sheety_table["iataCode"]
+    city = row_in_sheety_table["city"]
     if iataCode =="":
-        my_flight_search = FlightSearch(iataCode)
-        my_flight_search.get_update_iataCode()
+        my_flight_search = FlightSearch(city)
+        # my_flight_search.get_update_iataCode()
         update_iataCode = my_flight_search.code
         # print(update_iataCode)
         row_in_sheety_table["iataCode"] = update_iataCode
         my_data_manager = DataManager(row_in_sheety_table)
 
 
+print("______________________UPDATE_____________________")
+print(sheet_data)
 # print("____________________________________________________")
 # print(sheet_data)
