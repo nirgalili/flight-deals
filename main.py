@@ -26,6 +26,7 @@ for row_in_sheety_table in sheet_data:
         my_data_manager = DataManager(row_in_sheety_table)
 
 
+
 print("______________________UPDATE_____________________")
 print(sheet_data)
 # print("____________________________________________________")
