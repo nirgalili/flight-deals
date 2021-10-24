@@ -2,6 +2,7 @@
 import requests
 from flight_search import FlightSearch
 from data_manager import DataManager
+from flight_data import FlightData
 
 wish_deals_endpoint = "https://api.sheety.co/530a49192b31d09ac9d82f6490293373/myFlightDeals/prices"
 
@@ -24,6 +25,9 @@ for row_in_sheety_table in sheet_data:
         # print(update_iataCode)
         row_in_sheety_table["iataCode"] = update_iataCode
         my_data_manager = DataManager(row_in_sheety_table)
+        # print(update_iataCode)
+        my_flight_data = FlightData(update_iataCode)
+
 
 
 
