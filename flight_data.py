@@ -50,9 +50,20 @@ class FlightData:
     def cheap_flight_price_search(self):
         response = requests.get(url=search_cheap_price_endpoint, params=self.query, headers=headers)
         resaults = response.json()
-        # print(resaults["data"][0]["price"])
-        price_of_flight = resaults["data"][0]["price"]
-        city_flight_to = resaults["data"][0]["countryTo"]["name"]
-        print(f"{city_flight_to}: £{price_of_flight}")
+        print(resaults["data"][0])
+        self.price_of_flight = resaults["data"][0]["price"]
+        self.city_flight_from = resaults["data"][0]["cityFrom"]
+        self.city_flight_to = resaults["data"][0]["cityTo"]
+        self.airport_iataCode_flight_from = resaults["data"][0]["flyFrom"]
+        self.airport_iataCode_flight_to = resaults["data"][0]["flyTo"]
+        local_departure_to = resaults["data"][0]["route"][0]["local_departure"]
+        self.local_date_flight_to = local_departure_to.split("T")[0]
+
+        local_departure_from = resaults["data"][0]["route"][1]["local_departure"]
+        self.local_date_flight_from = local_departure_from.split("T")[0]
+
+
+        print(f"{self.city_flight_to}: £{self.price_of_flight}")
+
 
 # my_flight_data = FlightData("PAR")

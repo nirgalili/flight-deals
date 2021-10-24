@@ -18,6 +18,7 @@ print(sheet_data)
 for row_in_sheety_table in sheet_data:
     iataCode = row_in_sheety_table["iataCode"]
     city = row_in_sheety_table["city"]
+    my_max_price_to_fly = row_in_sheety_table["lowestPrice"]
     if iataCode =="":
         my_flight_search = FlightSearch(city)
         # my_flight_search.get_update_iataCode()
@@ -27,6 +28,7 @@ for row_in_sheety_table in sheet_data:
         my_data_manager = DataManager(row_in_sheety_table)
         # print(update_iataCode)
         my_flight_data = FlightData(update_iataCode)
+
 
 
 
