@@ -1,4 +1,7 @@
 #This file will need to use the DataManager,FlightSearch, FlightData, NotificationManager classes to achieve the program requirements.
+
+# need to have google spreadsheet with data. I saved mine as My Flight Deals
+
 import requests
 from flight_search import FlightSearch
 from data_manager import DataManager
