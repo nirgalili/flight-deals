@@ -3,6 +3,7 @@ import requests
 from flight_search import FlightSearch
 from data_manager import DataManager
 from flight_data import FlightData
+from notification_manager import NotificationManager
 
 wish_deals_endpoint = "https://api.sheety.co/530a49192b31d09ac9d82f6490293373/myFlightDeals/prices"
 
@@ -28,6 +29,9 @@ for row_in_sheety_table in sheet_data:
         my_data_manager = DataManager(row_in_sheety_table)
         # print(update_iataCode)
         my_flight_data = FlightData(update_iataCode)
+
+        if my_flight_data.price_of_flight <= my_max_price_to_fly:
+            my_notification_manager = NotificationManager(my_flight_data)
 
 
 

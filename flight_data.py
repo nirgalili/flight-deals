@@ -45,12 +45,21 @@ class FlightData:
 
 
         }
+        self.price_of_flight = None
+        self.city_flight_from = None
+        self.city_flight_to = None
+        self.airport_iataCode_flight_from = None
+        self.airport_iataCode_flight_to = None
+        self.local_date_flight_to = None
+
+
+
         self.cheap_flight_price_search()
 
     def cheap_flight_price_search(self):
         response = requests.get(url=search_cheap_price_endpoint, params=self.query, headers=headers)
         resaults = response.json()
-        print(resaults["data"][0])
+        # print(resaults["data"][0])
         self.price_of_flight = resaults["data"][0]["price"]
         self.city_flight_from = resaults["data"][0]["cityFrom"]
         self.city_flight_to = resaults["data"][0]["cityTo"]
